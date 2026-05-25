@@ -6,16 +6,16 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: 'shell',
-      remotes: {
-        mfe_react: 'http://localhost:3001/assets/remoteEntry.js',
-        mfe_vue:   'http://localhost:3002/assets/remoteEntry.js',
+      name: 'mfe_react',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './App': './src/App',
       },
       shared: [],
     }),
   ],
   server: {
-    port: 3000,
+    port: 3001,
   },
   build: {
     target: 'esnext',
